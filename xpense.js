@@ -243,7 +243,7 @@ enterTransaction.addEventListener("click", function (e) {
                     retrieveAmountPerm[retrieveAmountPerm.length - 1]
                   }</div>
                  </div>`;
-    transactions.insertAdjacentHTML("beforeEnd", html);
+    transactions.insertAdjacentHTML("afterBegin", html);
     amountInputField.value = selectedField.value = "";
 
     //calculating total expenses
