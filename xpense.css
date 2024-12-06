@@ -60,7 +60,7 @@ select {
   min-width: 100px;
   font-size: 18px;
   font-weight: 700;
-  font-family: cursive;
+  font-family: arial;
   height: 40px;
   background-color: #98efa0;
   border-radius: 10px;
@@ -81,7 +81,8 @@ option {
   border-bottom-left-radius: 15px;
   overflow-x: scroll;
   border-top-color: #2db93b;
-  border-right-color: transparent;
+  border-right-color: #1c4a21;
+
 }
 .select_field {
   margin: 20px 0;
@@ -99,9 +100,10 @@ option {
 }
 
 .field {
-  padding: 2px 0 2px 10px;
-  font-size: 1em;
-  font-weight: 300;
+ padding: 2px 0 2px 10px;
+  font-size: 1.2em;
+  font-weight: 800;
+  height: 40px;
   outline: none;
   font-family: "Times New Roman", Times, serif;
 }
