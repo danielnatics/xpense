@@ -106,6 +106,7 @@ function init() {
   localStorage.setItem("total_xpense", 0);
   localStorage.signedState = 0;
 }
+init();
 localStorage.removeItem("new");
 // retrieving from local storage
 let getAmount = localStorage.getItem("amounts").split(",");
