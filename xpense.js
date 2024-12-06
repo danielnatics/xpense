@@ -183,12 +183,12 @@ let retrieveDateAndTimeTemp = localStorage.getItem("date_time").split(",");
 
 // constructing date and time vaiable
 const addDate = new Date();
-let time = addDate.toLocaleString("en-US", {
-  hour: "numeric",
-  minute: "numeric",
-  hour12: true,
-});
-// let time = addDate.toTimeString().slice(0, 8);
+// let time = addDate.toLocaleString("en-US", {
+//   hour: "numeric",
+//   minute: "numeric",
+//   hour12: true,
+// });
+let time = addDate.toTimeString().slice(0, 8);
 let date = addDate.toDateString().slice(4, 10).split(" ");
 let [month, day] = date;
 let dateAndTime = `${day.slice(1)}th ${month} ${time}`;
