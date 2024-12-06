@@ -197,7 +197,7 @@ console.log(time);
 enterTransaction.addEventListener("click", function (e) {
   e.preventDefault();
 
-  if (!selectedField.value && !amountInputField.value) {
+  if (!selectedField.value || !amountInputField.value) {
     alert("Select an item");
   } else {
     //update store
@@ -243,7 +243,7 @@ enterTransaction.addEventListener("click", function (e) {
                     retrieveAmountPerm[retrieveAmountPerm.length - 1]
                   }</div>
                  </div>`;
-    transactions.insertAdjacentHTML("afterBegin", html);
+    transactions.insertAdjacentHTML("beforeEnd", html);
     amountInputField.value = selectedField.value = "";
 
     //calculating total expenses
