@@ -221,6 +221,17 @@ option {
   50% {
     background-color: #64dc70;
   }
+  .refresh_btn {
+  font-size: 16px;
+  background-color: #c1ecc6;
+  font-weight: bold;
+  outline: none;
+  padding: 10px 3px;
+  border: 1px solid rgba(0, 0, 0, 0.692);
+  width: 70%;
+  margin: 0 auto;
+}
+
   100% {
     background-color: #6bf179;
   }
