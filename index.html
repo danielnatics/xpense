@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xpense</title>
+    <link rel="stylesheet" href="xpense.css" />
+  </head>
+  <body>
+    <header>
+      <p>Xpense</p>
+    </header>
+    <div class="body">
+      <h2>Hey dear,</h2>
+      <p>
+        Have you been having problems of keeping track of your daily expenses?
+        Don't worry we got you covered
+      </p>
+      <p style="margin-bottom: 15px">
+        We have a list of the basic expenses made by an individual or family.
+        You also have the opportunity to customise your own expense list. No
+        need to waste time.
+      </p>
+
+      <button class="create_account_btn" id="create_account_btn">
+        Create Profile
+      </button>
+      <p style="margin-bottom: 10px">
+        We have categories such as transportation, food stuffs, articles,
+        snacks, articles and others. You can also add items to the various
+        categories using the Add Item button. The category called other is a
+        custom category for you to add items.
+      </p>
+      <p class="welcome_user" style="font-weight: 1000" id="welcome_user"></p>
+
+      <button class="initialise_btn invisible" id="initialise_btn">
+        Enter DashBoard
+      </button>
+      <div class="signup_box invisible" id="signup_box">
+        <button class="signup_input_close_btn" id="signup_input_close_btn">
+          &#10005;
+        </button>
+        <form class="signup_form">
+          <input
+            type="text"
+            class="signup_input"
+            placeholder="enter name"
+            id="signup_name"
+          />
+          <input
+            type="password"
+            class="signup_input"
+            placeholder="enter a six digit pin"
+            name=""
+            maxlength="6"
+            id="signup_password"
+          />
+          <input
+            type="submit"
+            id="signup_submit_btn"
+            class="signup_input signup_submit_btn"
+            value="submit"
+          />
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const signUpBox = document.getElementById("signup_box");
+      const signUpBtn = document.getElementById("signup_submit_btn");
+      const signUpCloseBtn = document.getElementById("signup_input_close_btn");
+      const signUpName = document.getElementById("signup_name");
+      const signUpPassword = document.getElementById("signup_password");
+
+      const articles = [
+        "articles",
+        "Bathing soap",
+        "Washing soap",
+        "Tooth paste",
+        "Tissue",
+        "Tooth brush",
+      ];
+      const communication = [
+        "Airtime/Date",
+        "MTN Airtime",
+        "Airtel Airtime",
+        "GLO Airtime",
+        "9Mobile Airtime",
+        "MTN data",
+        "Airtel data",
+        "GLO data",
+        "9Mobile data",
+      ];
+      const transportation = ["Transport", "Keke", "shuttle", "bus", "bike"];
+      const foodstuffs = [
+        "Foodstuff",
+        "beans",
+        "rice",
+        "garri",
+        "bread",
+        "red oil",
+        "indomie",
+        "egg",
+        "plantain",
+      ];
+      const amounts = [
+        "Amount",
+        50,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900,
+        1000,
+        1100,
+        1200,
+        1300,
+        1400,
+        1500,
+        1600,
+        1700,
+        1800,
+        1900,
+        2000,
+      ];
+      const snacks = ["snacks", "buns", "egg roll", "plastic drink", "biscuit"];
+      const others = ["custom"];
+
+      function init() {
+        localStorage.amounts = amounts;
+        localStorage.others = others;
+        localStorage.transports = transportation;
+        localStorage.foodstuffs = foodstuffs;
+        localStorage.snacks = snacks;
+        localStorage.articles = articles;
+        localStorage.communication = communication;
+
+        //restore storage
+        localStorage.date_time = "date/time";
+        localStorage.itemName = "Transactions";
+        localStorage.transaction_amount = "Cost";
+        localStorage.setItem("total_xpense", 0);
+        localStorage.signedState = 0;
+      }
+      init();
+
+      signUpBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        let signup_input_name = signUpName.value;
+        let uppercase = signup_input_name.toUpperCase();
+        let signup_input_password = signUpPassword.value;
+        console.log(signup_input_name, signup_input_password);
+        document.getElementById(
+          "welcome_user"
+        ).textContent = `Welcome ${uppercase}, `;
+
+        signUpBox.classList.add("invisible");
+        localStorage.signedState = 1;
+        let getSignedState = localStorage.getItem("signedState");
+        let state = Number(getSignedState);
+        document.getElementById("initialise_btn").classList.remove("invisible");
+      });
+      signUpCloseBtn.addEventListener("click", function () {
+        console.log("hello");
+        signUpBox.classList.add("invisible");
+      });
+
+      document
+        .getElementById("create_account_btn")
+        .addEventListener("click", () => {
+          signUpBox.classList.remove("invisible");
+        });
+
+      document
+        .getElementById("initialise_btn")
+        .addEventListener("click", function () {
+          let getSignedState = localStorage.getItem("signedState");
+
+          let state = Number(getSignedState);
+          if (!state) {
+            alert("Create Profile");
+          } else {
+            document
+              .getElementById("initialise_btn")
+              .classList.add("invisible");
+            document.getElementById("create_account_btn").innerHTML = `
+        <p>You are logged in</p>
+      `;
+            location.href = "xpenses.html";
+          }
+        });
+    </script>
+  </body>
+</html>

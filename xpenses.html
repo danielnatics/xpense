@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="xpense.css" />
+    <title>Xpense</title>
+  </head>
+  <body>
+    <header>
+      <p>Xpense</p>
+    </header>
+    <div class="body">
+      <h4 style="margin-bottom: 20px; color: rgb(13, 39, 13)">
+        You can select an item from the various categories or manually type it
+        in the xpense box, this applies for the cost. It can be selected from
+        the amount field or typed in the amount field
+      </h4>
+      <section id="categories" class="categories">
+        <select name="transport" id="transport"></select>
+        <select name="foodstuff" id="foodstuff"></select>
+        <select name="snacks" id="snacks"></select>
+        <select name="articles" id="articles"></select>
+        <select name="communication" id="communication"></select>
+        <select name="others" id="others"></select>
+      </section>
+      <select name="amount" id="amount" class="amountlist invisible"></select>
+
+      <!-- <button class="enter-item">&rarr;</button> -->
+      <form class="select_field" id="select_field">
+        <input
+          type="text"
+          id="seleted"
+          class="selected_input_field field"
+          placeholder="xpense"
+        />
+        <input
+          type="number"
+          name="amount"
+          id="select_amount_field"
+          class="amount field"
+          placeholder="amount"
+        />
+
+        <input
+          type="submit"
+          class="submit field"
+          value="&rarr;"
+          id="submit_transactions"
+        />
+      </form>
+      <section class="transactions" id="transactions">
+        <div class="transactions_row">
+          <div class="transaction_details">
+            <div class="transaction_list" id="transaction_list"></div>
+            <div class="date_time"></div>
+          </div>
+          <div class="transaction_amount"></div>
+        </div>
+      </section>
+      <div class="summary">
+        <p>
+          Total Xpense:
+          <span
+            id="total_xpenses"
+            style="font-weight: 1000; color: rgb(11, 84, 11); font-size: 1.3em"
+            ;
+          ></span>
+        </p>
+      </div>
+    </div>
+    <script src="xpense.js"></script>
+  </body>
+</html>
