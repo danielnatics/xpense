@@ -99,7 +99,7 @@ function init() {
   localStorage.itemName = "Transactions";
   localStorage.transaction_amount = "Cost";
   localStorage.setItem("total_xpense", 0);
-  localStorage.signedState = 0;
+  // localStorage.signedState = 0;
 }
 // init();
 localStorage.removeItem("new");
@@ -350,3 +350,9 @@ if (!state) {
 // display sign up box
 
 //Create dashboard
+
+//refreshing dashboard
+document.getElementById("refresh_btn").addEventListener("click", function () {
+  init();
+  location.reload();
+});
